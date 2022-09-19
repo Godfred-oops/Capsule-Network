@@ -4,11 +4,11 @@ Created on Sat Sep 17 13:52:56 2022
 
 @author: Quophi_ababio
 """
-import re
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import decimal
+
 
 with open("data.txt") as f:
     content = f.readlines()
@@ -34,8 +34,7 @@ with open("data.txt") as f:
     final_df = pd.DataFrame(zip(time_points, empty_float), columns = ['time_points', 'points'])
     
     for b in range(len(final_df['time_points'])):
-        t = [x for x in str(final_df['time_points'][b])]
-        if int(t[-1]) == 5:
+        if time_step == 0.005 and b % 2 == 0:
             final_df = final_df.drop(b, axis = 0)   
         else:
             continue
